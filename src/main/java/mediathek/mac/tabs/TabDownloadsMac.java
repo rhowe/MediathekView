@@ -21,12 +21,14 @@ public class TabDownloadsMac extends GuiDownloads {
 
     @Override
     public void showTouchBar() {
-        touchBar.show(mediathekGui);
+        if (touchBar != null)
+            touchBar.show(mediathekGui);
     }
 
     @Override
     public void hideTouchBar() {
-        touchBar.hide(mediathekGui);
+        if (touchBar != null)
+            touchBar.hide(mediathekGui);
     }
 
     protected void setupTouchBar() {
