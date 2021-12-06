@@ -664,11 +664,13 @@
     <profiles>
         <profile>
             <id>64bit</id>
+            <!--
             <activation>
                 <property>
                     <name>!use32bit</name>
                 </property>
             </activation>
+            -->
             <build>
                 <plugins>
                     <plugin>
