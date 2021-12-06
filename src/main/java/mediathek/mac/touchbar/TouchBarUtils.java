@@ -2,6 +2,7 @@ package mediathek.mac.touchbar;
 
 import jiconfont.icons.font_awesome.FontAwesome;
 import jiconfont.swing.IconFontSwing;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -66,6 +67,10 @@ public class TouchBarUtils {
         logger.trace("checkTouchBarSupport");
         TOUCHBAR_SUPPORTED = false;
         try {
+            if (SystemUtils.OS_ARCH.equalsIgnoreCase("aarch64")) {
+                // we dont have native lib :(
+                return;
+            }
             var process = Runtime.getRuntime().exec("bin/mv_touchbar_support");
             if (process.waitFor(2, TimeUnit.SECONDS)) {
                 // no timeout
