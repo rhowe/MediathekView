@@ -669,51 +669,6 @@
                     <name>!use32bit</name>
                 </property>
             </activation>
-            <dependencies>
-                <!-- JavaFX -->
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-base</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-controls</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-media</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-swing</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-web</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-fxml</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-graphics</artifactId>
-                    <version>${javafx.version}</version>
-                    <classifier>${javafx.platform}</classifier>
-                </dependency>
-            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -829,6 +784,68 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>generic_javafx_deps</id>
+            <activation>
+                <os>
+                    <!-- DO NOT ACTIVATE ON macOS Apple Silicon. There we must use locally provided SDK -->
+                    <arch>!aarch64</arch>
+                    <name>!mac</name>
+                </os>
+            </activation>
+            <dependencies>
+                <!-- JavaFX -->
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-base</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-controls</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-media</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-swing</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-web</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-fxml</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-graphics</artifactId>
+                    <version>${javafx.version}</version>
+                    <classifier>${javafx.platform}</classifier>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>windows</id>
@@ -1108,7 +1125,7 @@
             </activation>
             <properties>
                 <javafx.platform>mac</javafx.platform>
-                <javafx.sdk>/path/to/sdk</javafx.sdk>
+                <javafx.sdk>${project.basedir}/javafx_sdk/mac/aarch64/javafx-sdk-17.0.2/lib</javafx.sdk>
             </properties>
             <dependencies>
                 <!-- JavaFX -->
@@ -1118,35 +1135,35 @@
                     <version>${javafx.version}</version>
                     <classifier>${javafx.platform}</classifier>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.base.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-controls</artifactId>
                     <version>${javafx.version}</version>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.controls.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-media</artifactId>
                     <version>${javafx.version}</version>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.media.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-swing</artifactId>
                     <version>${javafx.version}</version>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.swing.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-web</artifactId>
                     <version>${javafx.version}</version>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.web.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
@@ -1154,7 +1171,7 @@
                     <version>${javafx.version}</version>
                     <classifier>${javafx.platform}</classifier>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.fxml.jar</systemPath>
                 </dependency>
                 <dependency>
                     <groupId>org.openjfx</groupId>
@@ -1162,7 +1179,7 @@
                     <version>${javafx.version}</version>
                     <classifier>${javafx.platform}</classifier>
                     <scope>system</scope>
-                    <systemPath>${javafx.sdk}</systemPath>
+                    <systemPath>${javafx.sdk}/javafx.graphics.jar</systemPath>
                 </dependency>
             </dependencies>
             <build>
