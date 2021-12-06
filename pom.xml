@@ -1091,7 +1091,7 @@
             </build>
         </profile>
         <profile>
-            <id>linux_arm</id>
+            <id>linux_arm_64bit</id>
             <activation>
                 <os>
                 <family>unix</family>
