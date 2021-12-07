@@ -10,7 +10,7 @@
 - **BUGFIX:** Das Programm deaktiviert während der Modellverarbeitung nun zuverlässiger relevante Steuerelemente.
 - **FEATURE:** Während der Modellverarbeitung wird nun rechts unten in der Statusleiste eine Fortschrittsanzeige eingeblendet.
 - Filtergeschwindigkeit beim Einlesen der Filmliste wurde verbessert.
-- Touchbar support wird für *Apple Silicon CPUs* deaktiviert da die notwendigen Bibliotheken nicht nativ vorhanden sind. 
+- TouchBar support wurde entfernt da die Bibliothek nicht mehr gepflegt wird. 
   
 <u>**13.8**</u>
 

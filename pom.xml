@@ -182,12 +182,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thizzer.jtouchbar</groupId>
-            <artifactId>jtouchbar-javafx</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
             <version>${tilesfx.version}</version>
@@ -942,7 +936,6 @@
                 <install4j.platform>linux</install4j.platform>
             </properties>
             <dependencies>
-                <!-- JavaFX -->
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-base</artifactId>
@@ -1034,7 +1027,6 @@
                 <install4j.platform>arm</install4j.platform>
             </properties>
             <dependencies>
-                <!-- JavaFX -->
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-base</artifactId>
@@ -1132,7 +1124,6 @@
                 <javafx.platform>mac</javafx.platform>
             </properties>
             <dependencies>
-                <!-- JavaFX -->
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-base</artifactId>
@@ -1265,7 +1256,6 @@
                 <javafx.sdk>${project.basedir}/javafx_sdk/mac/aarch64/javafx-sdk-17.0.2/lib</javafx.sdk>
             </properties>
             <dependencies>
-                <!-- JavaFX -->
                 <dependency>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-base</artifactId>
