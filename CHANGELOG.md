@@ -8,6 +8,7 @@
 - **BUGFIX:** Minimal- und Maximallänge im Filter lässt sich nun wieder vollständig einstellen.
 - **BUGFIX:** Das Filmmodell wurde teilweise zu oft gefiltert und verlangsamte so unnötigerweise das Programm.
 - **BUGFIX:** Das Programm deaktiviert während der Modellverarbeitung nun zuverlässiger relevante Steuerelemente.
+- **BUGFIX:** Das Einlesen von fehlerhaften Aboeinträgen führt nicht mehr zum Einfrieren des Programms.
 - **FEATURE:** Während der Modellverarbeitung wird nun rechts unten in der Statusleiste eine Fortschrittsanzeige eingeblendet.
 - Filtergeschwindigkeit beim Einlesen der Filmliste wurde verbessert.
 - TouchBar support wurde entfernt da die Bibliothek nicht mehr gepflegt wird. 
